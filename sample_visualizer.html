@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Video Checker - Sample Visualization</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --accent: #0ea5e9;
+            --danger: #ef4444;
+            --new: #10b981;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--card-bg);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge {
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            font-weight: bold;
+        }
+
+        .bg-new {
+            background-color: var(--new);
+            color: white;
+        }
+
+        .bg-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 300px;
+            background-color: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-sub);
+            position: relative;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 1rem;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 0 0 0.5rem 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .meta {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .note {
+            text-align: center;
+            color: var(--text-sub);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Prime Video Scanner (モックアップ)</h1>
+        <p class="note">※ 現在はプログラムの枠組みが完成した段階です。<br>今後APIを連携すると、内部で以下のようなデータが自動収集・分類されるようになります。</p>
+
+        <h2 class="section-title">
+            <span class="badge bg-new">NEW</span>
+            新着追加された作品
+        </h2>
+        <div class="grid">
+            <a href="https://www.amazon.co.jp/gp/video/storefront/" target="_blank" class="card">
+                <div class="thumbnail">サムネイル画像<br>(クリックで詳細へ)</div>
+                <div class="info">
+                    <h3 class="title">テスト・ムービー 1</h3>
+                    <div class="meta"><span>映画</span><span>2026年</span></div>
+                </div>
+            </a>
+            <a href="https://www.amazon.co.jp/gp/video/storefront/" target="_blank" class="card">
+                <div class="thumbnail">サムネイル画像<br>(クリックで詳細へ)</div>
+                <div class="info">
+                    <h3 class="title">話題のドラマ 第1シーズン</h3>
+                    <div class="meta"><span>ドラマ</span><span>全12話</span></div>
+                </div>
+            </a>
+        </div>
+
+        <h2 class="section-title">
+            <span class="badge bg-danger">Expiring</span>
+            まもなく配信終了する作品
+        </h2>
+        <div class="grid">
+            <a href="https://www.amazon.co.jp/gp/video/storefront/" target="_blank" class="card">
+                <div class="thumbnail">
+                    <div
+                        style="position: absolute; top: 10px; right: 10px; background: red; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">
+                        あと3日</div>
+                    サムネイル画像<br>(クリックで詳細へ)
+                </div>
+                <div class="info">
+                    <h3 class="title">名作アニメ 劇場版</h3>
+                    <div class="meta"><span>アニメ</span><span>3/14 終了</span></div>
+                </div>
+            </a>
+            <a href="https://www.amazon.co.jp/gp/video/storefront/" target="_blank" class="card">
+                <div class="thumbnail">
+                    <div
+                        style="position: absolute; top: 10px; right: 10px; background: red; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">
+                        あと5日</div>
+                    サムネイル画像<br>(クリックで詳細へ)
+                </div>
+                <div class="info">
+                    <h3 class="title">アクション大作 2</h3>
+                    <div class="meta"><span>映画</span><span>3/16 終了</span></div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</body>
+
+</html>

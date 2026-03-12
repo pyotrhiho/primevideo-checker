@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Video Checker - Report</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --accent: #0ea5e9;
+            --danger: #ef4444;
+            --new: #10b981;
+            --anime: #ec4899;
+            --safe: #8b5cf6;
+            --star: #fbbf24;
+        }
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--card-bg);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .badge {
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            font-weight: bold;
+        }
+        .bg-new { background-color: var(--new); color: white; }
+        .bg-popular { background-color: var(--accent); color: white; }
+        .bg-anime { background-color: var(--anime); color: white; }
+        .bg-safe { background-color: var(--safe); color: white; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .thumbnail {
+            width: 100%;
+            height: 300px;
+            background-color: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-sub);
+            position: relative;
+        }
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .info {
+            padding: 1rem;
+        }
+        .title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 0 0 0.5rem 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .meta {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            color: var(--star);
+            font-weight: bold;
+        }
+        .rating-count {
+            color: var(--text-sub);
+            font-size: 0.75rem;
+            font-weight: normal;
+        }
+        .note {
+            text-align: center;
+            color: var(--text-sub);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        .tmdb-attribution {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--card-bg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prime Video Scanner Report</h1>
+        <p class="note">Generated at: 2026-03-11 02:18:58</p>
+
+        <h2 class="section-title">
+            <span class="badge bg-new">NEW</span>
+            最近追加された作品
+        </h2>
+        <div class="grid">
+            
+    <a href="https://www.amazon.co.jp/s?k=ポール･マッカートニー：マン･オン･ザ･ラン&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/hVuy90uOHA6clrxplEwUdQNKDN1.jpg" alt="ポール･マッカートニー：マン･オン･ザ･ラン">
+        </div>
+        <div class="info">
+            <h3 class="title" title="ポール･マッカートニー：マン･オン･ザ･ラン">ポール･マッカートニー：マン･オン･ザ･ラン</h3>
+            <div class="meta">
+                <span>2026</span>
+                <span class="rating">★ 7.9 <span class="rating-count">(14)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=ザ・ブラフ+ブラッディ・メアリーの戦い&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/vY674teicrf4PalntDjGOfI4kxk.jpg" alt="ザ・ブラフ ブラッディ・メアリーの戦い">
+        </div>
+        <div class="info">
+            <h3 class="title" title="ザ・ブラフ ブラッディ・メアリーの戦い">ザ・ブラフ ブラッディ・メアリーの戦い</h3>
+            <div class="meta">
+                <span>2026</span>
+                <span class="rating">★ 6.2 <span class="rating-count">(225)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=ラブミー・ラブミー&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/c6g7ACDNodSAj8bE2uNZxUiuV3J.jpg" alt="ラブミー・ラブミー">
+        </div>
+        <div class="info">
+            <h3 class="title" title="ラブミー・ラブミー">ラブミー・ラブミー</h3>
+            <div class="meta">
+                <span>2026</span>
+                <span class="rating">★ 5.5 <span class="rating-count">(161)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=Relationship+Goals&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/o7dVxvZIKnAB7k1eeeWp2k14Es7.jpg" alt="Relationship Goals">
+        </div>
+        <div class="info">
+            <h3 class="title" title="Relationship Goals">Relationship Goals</h3>
+            <div class="meta">
+                <span>2026</span>
+                <span class="rating">★ 5.6 <span class="rating-count">(50)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=メラニア&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/8xXdTNGkMUcr1d9D4qYJSIj9bxX.jpg" alt="メラニア">
+        </div>
+        <div class="info">
+            <h3 class="title" title="メラニア">メラニア</h3>
+            <div class="meta">
+                <span>2026</span>
+                <span class="rating">★ 3.0 <span class="rating-count">(92)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=レッキング・クルー&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/7YFpaq50aFt0v4IvDQikn8xpJqt.jpg" alt="レッキング・クルー">
+        </div>
+        <div class="info">
+            <h3 class="title" title="レッキング・クルー">レッキング・クルー</h3>
+            <div class="meta">
+                <span>2026</span>
+                <span class="rating">★ 6.9 <span class="rating-count">(757)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=చీకటిలో&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/pO86EjZb7QyGYk5RW4Xm4UWe5Uv.jpg" alt="చీకటిలో">
+        </div>
+        <div class="info">
+            <h3 class="title" title="చీకటిలో">చీకటిలో</h3>
+            <div class="meta">
+                <span>2026</span>
+                <span class="rating">★ 4.5 <span class="rating-count">(8)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=テル・ミー・ソフトリー&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/1hTNfVPCPh618ZlQz7OYCYK1KGE.jpg" alt="テル・ミー・ソフトリー">
+        </div>
+        <div class="info">
+            <h3 class="title" title="テル・ミー・ソフトリー">テル・ミー・ソフトリー</h3>
+            <div class="meta">
+                <span>2025</span>
+                <span class="rating">★ 6.1 <span class="rating-count">(142)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=マーヴ+～愛犬がくれた贈り物～&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/AdRdTXoUURgtjjvWCis95pp03Uo.jpg" alt="マーヴ ～愛犬がくれた贈り物～">
+        </div>
+        <div class="info">
+            <h3 class="title" title="マーヴ ～愛犬がくれた贈り物～">マーヴ ～愛犬がくれた贈り物～</h3>
+            <div class="meta">
+                <span>2025</span>
+                <span class="rating">★ 5.8 <span class="rating-count">(112)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=なんて楽しいクリスマス！&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/jXNIQJGf4FM5wcG7noDNVx1qLlu.jpg" alt="なんて楽しいクリスマス！">
+        </div>
+        <div class="info">
+            <h3 class="title" title="なんて楽しいクリスマス！">なんて楽しいクリスマス！</h3>
+            <div class="meta">
+                <span>2025</span>
+                <span class="rating">★ 5.6 <span class="rating-count">(240)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=２つの世界+１つの願い&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/98JYjLElGk8cHYd2FT0DLK11CcJ.jpg" alt="２つの世界 １つの願い">
+        </div>
+        <div class="info">
+            <h3 class="title" title="２つの世界 １つの願い">２つの世界 １つの願い</h3>
+            <div class="meta">
+                <span>2025</span>
+                <span class="rating">★ 7.4 <span class="rating-count">(41)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=Zara+Larsson+-+Up+Close&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/1QwSiYgH31nR1NWaWoWYGWFyhxh.jpg" alt="Zara Larsson - Up Close">
+        </div>
+        <div class="info">
+            <h3 class="title" title="Zara Larsson - Up Close">Zara Larsson - Up Close</h3>
+            <div class="meta">
+                <span>2025</span>
+                <span class="rating">★ 7.0 <span class="rating-count">(7)</span></span>
+            </div>
+        </div>
+    </a>
+    
+        </div>
+
+        <h2 class="section-title">
+            <span class="badge bg-popular">HOT</span>
+            現在人気の作品
+        </h2>
+        <div class="grid">
+            
+    <a href="https://www.amazon.co.jp/s?k=ザ・ブラフ+ブラッディ・メアリーの戦い&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/vY674teicrf4PalntDjGOfI4kxk.jpg" alt="ザ・ブラフ ブラッディ・メアリーの戦い">
+        </div>
+        <div class="info">
+            <h3 class="title" title="ザ・ブラフ ブラッディ・メアリーの戦い">ザ・ブラフ ブラッディ・メアリーの戦い</h3>
+            <div class="meta">
+                <span>2026</span>
+                <span class="rating">★ 6.2 <span class="rating-count">(225)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=レッキング・クルー&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/7YFpaq50aFt0v4IvDQikn8xpJqt.jpg" alt="レッキング・クルー">
+        </div>
+        <div class="info">
+            <h3 class="title" title="レッキング・クルー">レッキング・クルー</h3>
+            <div class="meta">
+                <span>2026</span>
+                <span class="rating">★ 6.9 <span class="rating-count">(757)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=ウォー・オブ・ザ・ワールド&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/yvirUYrva23IudARHn3mMGVxWqM.jpg" alt="ウォー・オブ・ザ・ワールド">
+        </div>
+        <div class="info">
+            <h3 class="title" title="ウォー・オブ・ザ・ワールド">ウォー・オブ・ザ・ワールド</h3>
+            <div class="meta">
+                <span>2025</span>
+                <span class="rating">★ 4.2 <span class="rating-count">(915)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=トリプルX&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/kqojzk0jxoP93RKKUXvQZ7wRhMG.jpg" alt="トリプルX">
+        </div>
+        <div class="info">
+            <h3 class="title" title="トリプルX">トリプルX</h3>
+            <div class="meta">
+                <span>2002</span>
+                <span class="rating">★ 6.0 <span class="rating-count">(4816)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=俺の過ち&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/3KIWnc3ekA3OsdEFhP1fGYffx0D.jpg" alt="俺の過ち">
+        </div>
+        <div class="info">
+            <h3 class="title" title="俺の過ち">俺の過ち</h3>
+            <div class="meta">
+                <span>2023</span>
+                <span class="rating">★ 7.8 <span class="rating-count">(4011)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=ショーシャンクの空に&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/xQY1yhixcSSfKRhdlhzwN8Mra6q.jpg" alt="ショーシャンクの空に">
+        </div>
+        <div class="info">
+            <h3 class="title" title="ショーシャンクの空に">ショーシャンクの空に</h3>
+            <div class="meta">
+                <span>1995</span>
+                <span class="rating">★ 8.7 <span class="rating-count">(29886)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=トラップハウス&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/mIwBBRoq6ydrmZDpKpXQ9QtFZHI.jpg" alt="トラップハウス">
+        </div>
+        <div class="info">
+            <h3 class="title" title="トラップハウス">トラップハウス</h3>
+            <div class="meta">
+                <span>2025</span>
+                <span class="rating">★ 6.5 <span class="rating-count">(229)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=ゴッドファーザー&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/hJ1oIGxEoskl4YfNpQ4AFUO5uub.jpg" alt="ゴッドファーザー">
+        </div>
+        <div class="info">
+            <h3 class="title" title="ゴッドファーザー">ゴッドファーザー</h3>
+            <div class="meta">
+                <span>1972</span>
+                <span class="rating">★ 8.7 <span class="rating-count">(22566)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=ラブミー・ラブミー&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/c6g7ACDNodSAj8bE2uNZxUiuV3J.jpg" alt="ラブミー・ラブミー">
+        </div>
+        <div class="info">
+            <h3 class="title" title="ラブミー・ラブミー">ラブミー・ラブミー</h3>
+            <div class="meta">
+                <span>2026</span>
+                <span class="rating">★ 5.5 <span class="rating-count">(161)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=タイタニック&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/ofhCnW6i7mQIiLSSucBHqZQ7XT7.jpg" alt="タイタニック">
+        </div>
+        <div class="info">
+            <h3 class="title" title="タイタニック">タイタニック</h3>
+            <div class="meta">
+                <span>1997</span>
+                <span class="rating">★ 7.9 <span class="rating-count">(26868)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=シュレック&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/lw3t91kiFVgE2qgFdgXCwGpGIH6.jpg" alt="シュレック">
+        </div>
+        <div class="info">
+            <h3 class="title" title="シュレック">シュレック</h3>
+            <div class="meta">
+                <span>2001</span>
+                <span class="rating">★ 7.8 <span class="rating-count">(18478)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=ロード・オブ・ザ・リング&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/9H6kyppkOJ1xkVN1s3LIFcPQKPO.jpg" alt="ロード・オブ・ザ・リング">
+        </div>
+        <div class="info">
+            <h3 class="title" title="ロード・オブ・ザ・リング">ロード・オブ・ザ・リング</h3>
+            <div class="meta">
+                <span>2002</span>
+                <span class="rating">★ 8.4 <span class="rating-count">(27127)</span></span>
+            </div>
+        </div>
+    </a>
+    
+        </div>
+
+        <h2 class="section-title">
+            <span class="badge bg-anime">ANIME</span>
+            人気のアニメ作品
+        </h2>
+        <div class="grid">
+            
+    <a href="https://www.amazon.co.jp/s?k=シュレック&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/lw3t91kiFVgE2qgFdgXCwGpGIH6.jpg" alt="シュレック">
+        </div>
+        <div class="info">
+            <h3 class="title" title="シュレック">シュレック</h3>
+            <div class="meta">
+                <span>2001</span>
+                <span class="rating">★ 7.8 <span class="rating-count">(18478)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=ザ・スーパーマリオブラザーズ・ムービー&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/9oRTYGGqRuMGmC6MzII5Q0ofOuz.jpg" alt="ザ・スーパーマリオブラザーズ・ムービー">
+        </div>
+        <div class="info">
+            <h3 class="title" title="ザ・スーパーマリオブラザーズ・ムービー">ザ・スーパーマリオブラザーズ・ムービー</h3>
+            <div class="meta">
+                <span>2023</span>
+                <span class="rating">★ 7.6 <span class="rating-count">(10327)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=スパイダーマン：スパイダーバース&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/fiQDuX99qmabApoNUMBAs0ATDyS.jpg" alt="スパイダーマン：スパイダーバース">
+        </div>
+        <div class="info">
+            <h3 class="title" title="スパイダーマン：スパイダーバース">スパイダーマン：スパイダーバース</h3>
+            <div class="meta">
+                <span>2019</span>
+                <span class="rating">★ 8.4 <span class="rating-count">(16945)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=君の名は。&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/yLglTwyFOUZt5fNKm0PWL1PK5gm.jpg" alt="君の名は。">
+        </div>
+        <div class="info">
+            <h3 class="title" title="君の名は。">君の名は。</h3>
+            <div class="meta">
+                <span>2016</span>
+                <span class="rating">★ 8.5 <span class="rating-count">(12340)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=攻殻機動隊+STAND+ALONE+COMPLEX+Solid+State+Society&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/cZGAWVbnziB9jl7ef1G2eULA0bb.jpg" alt="攻殻機動隊 STAND ALONE COMPLEX Solid State Society">
+        </div>
+        <div class="info">
+            <h3 class="title" title="攻殻機動隊 STAND ALONE COMPLEX Solid State Society">攻殻機動隊 STAND ALONE COMPLEX Solid State Society</h3>
+            <div class="meta">
+                <span>2011</span>
+                <span class="rating">★ 7.5 <span class="rating-count">(279)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=バッドガイズ+2&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/26oSPnq0ct59l07QOXZKyzsiRtN.jpg" alt="バッドガイズ 2">
+        </div>
+        <div class="info">
+            <h3 class="title" title="バッドガイズ 2">バッドガイズ 2</h3>
+            <div class="meta">
+                <span>2025</span>
+                <span class="rating">★ 7.7 <span class="rating-count">(693)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=スパイダーマン：アクロス・ザ・スパイダーバース&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/gMDbgY0vYaCrJcbv2gPlffIHUDS.jpg" alt="スパイダーマン：アクロス・ザ・スパイダーバース">
+        </div>
+        <div class="info">
+            <h3 class="title" title="スパイダーマン：アクロス・ザ・スパイダーバース">スパイダーマン：アクロス・ザ・スパイダーバース</h3>
+            <div class="meta">
+                <span>2023</span>
+                <span class="rating">★ 8.3 <span class="rating-count">(8331)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=ドラゴンボールZ+極限バトル!!三大超サイヤ人&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/ehq5JRKVDo38HVdZagLrS7Jik7D.jpg" alt="ドラゴンボールZ 極限バトル!!三大超サイヤ人">
+        </div>
+        <div class="info">
+            <h3 class="title" title="ドラゴンボールZ 極限バトル!!三大超サイヤ人">ドラゴンボールZ 極限バトル!!三大超サイヤ人</h3>
+            <div class="meta">
+                <span>1992</span>
+                <span class="rating">★ 6.9 <span class="rating-count">(601)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=シュレック+フォーエバー&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/vjnAUnaSqrSLeq1OyfA2aIKis3C.jpg" alt="シュレック フォーエバー">
+        </div>
+        <div class="info">
+            <h3 class="title" title="シュレック フォーエバー">シュレック フォーエバー</h3>
+            <div class="meta">
+                <span>2010</span>
+                <span class="rating">★ 6.4 <span class="rating-count">(7847)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=野生の島のロズ&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/oUKsIXIKF52Yd98czewct9cwXdR.jpg" alt="野生の島のロズ">
+        </div>
+        <div class="info">
+            <h3 class="title" title="野生の島のロズ">野生の島のロズ</h3>
+            <div class="meta">
+                <span>2025</span>
+                <span class="rating">★ 8.3 <span class="rating-count">(5793)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=劇場版「鬼滅の刃」無限列車編&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/8OGrD5t6swQFmoZ1pGL2YJa277P.jpg" alt="劇場版「鬼滅の刃」無限列車編">
+        </div>
+        <div class="info">
+            <h3 class="title" title="劇場版「鬼滅の刃」無限列車編">劇場版「鬼滅の刃」無限列車編</h3>
+            <div class="meta">
+                <span>2020</span>
+                <span class="rating">★ 8.2 <span class="rating-count">(4416)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=映画+聲の形&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/ndlHzeb0WwdorqDzikjuQg9Lxw1.jpg" alt="映画 聲の形">
+        </div>
+        <div class="info">
+            <h3 class="title" title="映画 聲の形">映画 聲の形</h3>
+            <div class="meta">
+                <span>2016</span>
+                <span class="rating">★ 8.4 <span class="rating-count">(4384)</span></span>
+            </div>
+        </div>
+    </a>
+    
+        </div>
+
+        <h2 class="section-title">
+            <span class="badge bg-safe">SAFE</span>
+            全年齢対象(PG12・R15除外)の映画
+        </h2>
+        <div class="grid">
+            
+    <a href="https://www.amazon.co.jp/s?k=タイタニック&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/ofhCnW6i7mQIiLSSucBHqZQ7XT7.jpg" alt="タイタニック">
+        </div>
+        <div class="info">
+            <h3 class="title" title="タイタニック">タイタニック</h3>
+            <div class="meta">
+                <span>1997</span>
+                <span class="rating">★ 7.9 <span class="rating-count">(26868)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=シュレック&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/lw3t91kiFVgE2qgFdgXCwGpGIH6.jpg" alt="シュレック">
+        </div>
+        <div class="info">
+            <h3 class="title" title="シュレック">シュレック</h3>
+            <div class="meta">
+                <span>2001</span>
+                <span class="rating">★ 7.8 <span class="rating-count">(18478)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=スパイダーマン&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/vOjMTThfmTUxGzI7i6aIUOt5QNC.jpg" alt="スパイダーマン">
+        </div>
+        <div class="info">
+            <h3 class="title" title="スパイダーマン">スパイダーマン</h3>
+            <div class="meta">
+                <span>2002</span>
+                <span class="rating">★ 7.3 <span class="rating-count">(20373)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=ザ・スーパーマリオブラザーズ・ムービー&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/9oRTYGGqRuMGmC6MzII5Q0ofOuz.jpg" alt="ザ・スーパーマリオブラザーズ・ムービー">
+        </div>
+        <div class="info">
+            <h3 class="title" title="ザ・スーパーマリオブラザーズ・ムービー">ザ・スーパーマリオブラザーズ・ムービー</h3>
+            <div class="meta">
+                <span>2023</span>
+                <span class="rating">★ 7.6 <span class="rating-count">(10327)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=スパイダーマン：ノー・ウェイ・ホーム&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/j2vwjzuofol93OcSn8xAHJiTEoz.jpg" alt="スパイダーマン：ノー・ウェイ・ホーム">
+        </div>
+        <div class="info">
+            <h3 class="title" title="スパイダーマン：ノー・ウェイ・ホーム">スパイダーマン：ノー・ウェイ・ホーム</h3>
+            <div class="meta">
+                <span>2022</span>
+                <span class="rating">★ 7.9 <span class="rating-count">(21646)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=スパイダーマン：スパイダーバース&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/fiQDuX99qmabApoNUMBAs0ATDyS.jpg" alt="スパイダーマン：スパイダーバース">
+        </div>
+        <div class="info">
+            <h3 class="title" title="スパイダーマン：スパイダーバース">スパイダーマン：スパイダーバース</h3>
+            <div class="meta">
+                <span>2019</span>
+                <span class="rating">★ 8.4 <span class="rating-count">(16945)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=君の名は。&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/yLglTwyFOUZt5fNKm0PWL1PK5gm.jpg" alt="君の名は。">
+        </div>
+        <div class="info">
+            <h3 class="title" title="君の名は。">君の名は。</h3>
+            <div class="meta">
+                <span>2016</span>
+                <span class="rating">★ 8.5 <span class="rating-count">(12340)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=メラニア&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/8xXdTNGkMUcr1d9D4qYJSIj9bxX.jpg" alt="メラニア">
+        </div>
+        <div class="info">
+            <h3 class="title" title="メラニア">メラニア</h3>
+            <div class="meta">
+                <span>2026</span>
+                <span class="rating">★ 3.0 <span class="rating-count">(92)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=バービー&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/gt7tkrZSamFbTpHoME9shaIQY9q.jpg" alt="バービー">
+        </div>
+        <div class="info">
+            <h3 class="title" title="バービー">バービー</h3>
+            <div class="meta">
+                <span>2023</span>
+                <span class="rating">★ 6.9 <span class="rating-count">(10847)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=スパイダーマン：アクロス・ザ・スパイダーバース&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/gMDbgY0vYaCrJcbv2gPlffIHUDS.jpg" alt="スパイダーマン：アクロス・ザ・スパイダーバース">
+        </div>
+        <div class="info">
+            <h3 class="title" title="スパイダーマン：アクロス・ザ・スパイダーバース">スパイダーマン：アクロス・ザ・スパイダーバース</h3>
+            <div class="meta">
+                <span>2023</span>
+                <span class="rating">★ 8.3 <span class="rating-count">(8331)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=ハリー・ポッターと賢者の石&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/yahXormFOI94jTYeFEtglQ2izXv.jpg" alt="ハリー・ポッターと賢者の石">
+        </div>
+        <div class="info">
+            <h3 class="title" title="ハリー・ポッターと賢者の石">ハリー・ポッターと賢者の石</h3>
+            <div class="meta">
+                <span>2001</span>
+                <span class="rating">★ 7.9 <span class="rating-count">(29244)</span></span>
+            </div>
+        </div>
+    </a>
+    
+    <a href="https://www.amazon.co.jp/s?k=ハリー・ポッターとアズカバンの囚人&i=instant-video" target="_blank" class="card">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/pDODa2OZVCfMufWHU3ztfQq2tmr.jpg" alt="ハリー・ポッターとアズカバンの囚人">
+        </div>
+        <div class="info">
+            <h3 class="title" title="ハリー・ポッターとアズカバンの囚人">ハリー・ポッターとアズカバンの囚人</h3>
+            <div class="meta">
+                <span>2004</span>
+                <span class="rating">★ 8.0 <span class="rating-count">(22908)</span></span>
+            </div>
+        </div>
+    </a>
+    
+        </div>
+        
+        <div class="tmdb-attribution">
+            This product uses the TMDB API but is not endorsed or certified by TMDB.
+        </div>
+    </div>
+</body>
+</html>

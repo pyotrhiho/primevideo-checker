@@ -1,0 +1,5 @@
+[TMDB API キーの取得手順]
+1. https://www.themoviedb.org/ にアクセスしてアカウント作成・ログインします。
+2. 右上のプロフィールアイコンから設定(Settings) > API に進みます。
+3. DeveloperとしてAPIキーをリクエスト(登録)します。
+4. 発行された "API Read Access Token (v4 auth)" もしくは "API Key (v3 auth)" を使用します。

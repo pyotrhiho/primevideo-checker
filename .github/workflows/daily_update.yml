@@ -1,0 +1,47 @@
+name: Prime Video データ自動更新
+
+on:
+  schedule:
+    # JST 0:00 = UTC 15:00 (前日)
+    - cron: '0 15 * * *'
+    # JST 12:00 = UTC 3:00
+    - cron: '0 3 * * *'
+  workflow_dispatch:  # 手動実行も可能
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python セットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 依存関係インストール
+        run: pip install requests python-dotenv
+
+      - name: 過去のデプロイデータを復元
+        uses: actions/cache@v4
+        with:
+          path: netlify_deploy/data
+          key: prime-video-data-${{ github.run_number }}
+          restore-keys: prime-video-data-
+
+      - name: データ取得 & メタデータ付与 & デプロイ
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: python3 daily_update.py --deploy
+
+      - name: 完了ログ
+        run: |
+          echo "=== 更新完了 ==="
+          echo "日時: $(TZ=Asia/Tokyo date)"
+          ls -la netlify_deploy/data/ | tail -5
+          cat netlify_deploy/manifest.json
