@@ -135,7 +135,7 @@ def step2_add_metadata(data):
     print("\n=== STEP 2: メタデータ付与 ===")
     print("年齢制限の逆引き中...")
     certs = {}
-    for ep, typ in [("/discover/movie", "movie"), ("/discover/tv", "tv")]:
+    for ep, typ in [("/discover/movie", "movie")]:  # /discover/tv はcertificationパラメータを無視するため除外
         for cert in ["PG12", "R15+", "R18+"]:
             ids = fetch_certification_ids(ep, cert)
             certs[f"{typ}_{cert}"] = ids
