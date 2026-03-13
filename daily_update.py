@@ -21,10 +21,12 @@ import json
 import glob
 import requests
 import hashlib
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from dotenv import load_dotenv
 
 load_dotenv()
+
+JST = timezone(timedelta(hours=+9), 'JST')
 
 # === 設定 ===
 TMDB_API_KEY = os.environ.get("TMDB_API_KEY")
@@ -141,8 +143,8 @@ def step2_add_metadata(data):
             certs[f"{typ}_{cert}"] = ids
             print(f"  {typ} {cert}: {len(ids)}件")
 
-    thirty = datetime.now() - timedelta(days=30)
-    ninety = datetime.now() - timedelta(days=90)
+    thirty = datetime.now(JST) - timedelta(days=30)
+    ninety = datetime.now(JST) - timedelta(days=90)
     anime_rank = 1
 
     for i, item in enumerate(data):
@@ -272,7 +274,7 @@ def main():
         print("エラー: TMDB_API_KEY が設定されていません。")
         sys.exit(1)
 
-    today_str = datetime.now().strftime("%Y-%m-%d")
+    today_str = datetime.now(JST).strftime("%Y-%m-%d")
     print(f"===== Prime Video 日次更新 ({today_str}) =====")
 
     data = step1_fetch_all()
