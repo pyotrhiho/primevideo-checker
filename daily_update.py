@@ -169,7 +169,7 @@ def step2_add_metadata(data):
         rd = item.get("release_date", "")
         if rd and len(rd) >= 10:
             try:
-                d = datetime.strptime(rd[:10], "%Y-%m-%d")
+                d = datetime.strptime(rd[:10], "%Y-%m-%d").replace(tzinfo=JST)
                 if d >= thirty:
                     item["release_status"] = "NEW"
                 elif d >= ninety:
